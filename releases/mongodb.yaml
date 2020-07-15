@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: bitnami/mongodb
-      tag: 4.0.14
+      tag: 4.0.13
     usePassword: false
     persistence:
       enabled: false
@@ -24,3 +24,6 @@ spec:
       enabled: true
       fsGroup: 0
       runAsUser: 0
+
+helm upgrade -i helm-operator fluxcd/helm-operator --set git.ssh.secretName=flux-git-deploy --namespace flux
+helm upgrade -i flux fluxcd/flux --set git.url=git@github.com:yosra-harbaoui/flux-get-started --namespace flux
